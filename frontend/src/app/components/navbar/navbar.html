@@ -1,12 +1,12 @@
-<mat-toolbar class="!bg-gradient-to-r !from-emerald-700 !via-emerald-600 !to-teal-700
-                    !text-white fixed top-0 left-0 right-0 z-50 shadow-2xl border-b-4 !border-emerald-500">
+<mat-toolbar class="!bg-gradient-to-r !from-blue-900 !via-indigo-800 !to-cyan-700
+                   !text-white fixed top-0 left-0 right-0 z-50 shadow-2xl border-b-4 !border-blue-600">
 
   <div class="flex items-center justify-between w-full max-w-7xl mx-auto px-6 py-3">
 
     <!-- Logo -->
     <a routerLink="/" class="flex items-center gap-3 group">
-      <div class="text-4xl font-black tracking-tighter bg-gradient-to-r from-white to-emerald-200 
-                     bg-clip-text text-transparent group-hover:from-emerald-300 group-hover:to-white 
+      <div class="text-4xl font-black tracking-tighter bg-gradient-to-r from-white to-cyan-200 
+                     bg-clip-text text-transparent group-hover:from-cyan-300 group-hover:to-white 
                      transition-all duration-500">
         EcoBazaar
       </div>
@@ -18,11 +18,11 @@
       <!-- Normal User (Consumer) -->
       <ng-container *ngIf="auth.isUser() && !auth.isSeller() && !auth.isAdmin()">
         <a routerLink="/products" routerLinkActive="active-link"
-           class="text-white/90 hover:text-white font-semibold text-lg transition-all duration-300 hover:scale-110">
+           class="text-white/80 hover:text-white font-semibold text-lg transition-all duration-300 hover:scale-110">
           Shop
         </a>
         <a routerLink="/cart" routerLinkActive="active-link"
-           class="text-white/90 hover:text-white font-semibold text-lg transition-all duration-300 hover:scale-110 relative">
+           class="text-white/80 hover:text-white font-semibold text-lg transition-all duration-300 hover:scale-110 relative">
           Cart
           <span *ngIf="cartCount > 0"
                 class="absolute -top-3 -right-6 bg-yellow-400 text-black text-xs font-bold px-3 py-1 rounded-full animate-pulse shadow-lg">
@@ -30,7 +30,7 @@
           </span>
         </a>
         <a routerLink="/dashboard"
-           class="text-emerald-200 hover:text-white font-bold text-lg transition-all duration-300">
+           class="text-cyan-200 hover:text-white font-bold text-lg transition-all duration-300">
           My Impact
         </a>
       </ng-container>
@@ -38,7 +38,7 @@
       <!-- Seller Only -->
       <ng-container *ngIf="auth.isSeller() && !auth.isAdmin()">
         <a routerLink="/seller/dashboard"
-           class="text-emerald-200 hover:text-white font-bold text-xl transition-all duration-300 hover:scale-110">
+           class="text-cyan-200 hover:text-white font-bold text-xl transition-all duration-300 hover:scale-110">
           Seller Hub
         </a>
       </ng-container>
@@ -63,7 +63,7 @@
           Login
         </button>
         <button mat-raised-button color="accent" routerLink="/register"
-                class="bg-white text-emerald-700 font-bold px-8 py-2 rounded-full hover:bg-emerald-50 shadow-lg">
+                class="bg-white text-blue-900 font-bold px-8 py-2 rounded-full hover:bg-blue-50 shadow-lg">
           Join Free
         </button>
       </ng-container>
@@ -72,7 +72,7 @@
       <ng-container *ngIf="auth.isLoggedIn()">
         <div class="flex items-center gap-6 border-l border-white/30 pl-6">
           <div class="text-right">
-            <p class="text-white/80 text-sm">Welcome back</p>
+            <p class="text-white/70 text-sm">Welcome back</p>
             <p class="font-bold text-white text-lg">{{ auth.getName() }}</p>
           </div>
           <button mat-icon-button [matMenuTriggerFor]="userMenu">
@@ -102,11 +102,11 @@
 </mat-menu>
 
 <!-- Page Content -->
-<div class="pt-16 min-h-screen bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 relative overflow-hidden">
+<div class="pt-16 min-h-screen bg-gradient-to-br from-blue-50 via-cyan-50 to-indigo-100 relative overflow-hidden">
   <div class="absolute inset-0 -z-10 pointer-events-none">
-    <div class="absolute top-10 -left-20 w-96 h-96 bg-emerald-400/25 rounded-full blur-3xl animate-pulse"></div>
-    <div class="absolute bottom-0 right-0 w-80 h-80 bg-teal-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-lime-400/15 rounded-full blur-3xl animate-pulse delay-500"></div>
+    <div class="absolute top-10 -left-20 w-96 h-96 bg-blue-400/25 rounded-full blur-3xl animate-pulse"></div>
+    <div class="absolute bottom-0 right-0 w-80 h-80 bg-cyan-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-indigo-400/15 rounded-full blur-3xl animate-pulse delay-500"></div>
   </div>
   <router-outlet></router-outlet>
 </div>
