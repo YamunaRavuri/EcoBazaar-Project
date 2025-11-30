@@ -1,3 +1,5 @@
+navbar.html
+
 <mat-toolbar class="!bg-gradient-to-r !from-blue-900 !via-indigo-800 !to-cyan-700
                    !text-white fixed top-0 left-0 right-0 z-50 shadow-2xl border-b-4 !border-blue-600">
 
@@ -85,19 +87,27 @@
 </mat-toolbar>
 
 <!-- User Menu -->
-<mat-menu #userMenu="matMenu" class="mt-4">
+<mat-menu #userMenu="matMenu" class="mt-4 user-menu">
+
   <button mat-menu-item routerLink="/dashboard" *ngIf="auth.isUser() && !auth.isSeller()">
-    <mat-icon>dashboard</mat-icon> My Impact
+    <!-- <mat-icon>dashboard</mat-icon> My Impact -->
+    <span style="color:black;"><mat-icon>dashboard</mat-icon></span>
+      <span style="color:black;">My Impact</span>
   </button>
   <button mat-menu-item routerLink="/seller/dashboard" *ngIf="auth.isSeller()">
-    <mat-icon>storefront</mat-icon> Seller Dashboard
+    <!-- <mat-icon>storefront</mat-icon> Seller Dashboard -->
+     <span style="color:black;"><mat-icon>storefront</mat-icon></span>
+      <span style="color:black;">Seller dashboard</span>
   </button>
   <button mat-menu-item routerLink="/admin" *ngIf="auth.isAdmin()">
-    <mat-icon>shield</mat-icon> Admin Panel
+    <!-- <mat-icon>shield</mat-icon> Admin Panel -->
+     <span style="color:black;"><mat-icon>shield</mat-icon></span>
+      <span style="color:black;">Admin Panel</span>
   </button>
   <mat-divider></mat-divider>
   <button mat-menu-item (click)="logout()">
-    <mat-icon>logout</mat-icon> Logout
+     <span style="color:black;"><mat-icon>logout</mat-icon></span>
+      <span style="color:black;">Log out</span>
   </button>
 </mat-menu>
 

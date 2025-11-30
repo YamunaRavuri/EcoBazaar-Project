@@ -1,0 +1,41 @@
+navbar.scss
+
+::ng-deep .user-menu .mat-mdc-menu-panel,
+::ng-deep .user-menu .mat-menu-panel {
+  background: #ffffff !important;
+  border-radius: 30px !important;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15) !important;
+  backdrop-filter: none !important;      /* removes blur */
+//   overflow: hidden !important; 
+}
+
+/* Remove Material's translucent overlay layer */
+::ng-deep .user-menu .mdc-elevation-overlay {
+  background: transparent !important;    /* removes foggy glass layer */
+}
+
+/* Ensure the content itself is NOT transparent */
+::ng-deep .user-menu .mat-mdc-menu-content {
+  background: #ffffff !important;
+}
+
+
+/* Outer menu surface */
+::ng-deep .user-menu .mdc-menu-surface {
+  border-radius: 14px !important;
+  overflow: hidden !important;     /* IMPORTANT → forces rounding to show */
+}
+
+/* Panel wrapper */
+::ng-deep .user-menu .mat-mdc-menu-panel,
+::ng-deep .user-menu .mat-menu-panel {
+  border-radius: 14px !important;
+  overflow: hidden !important;     /* critical */
+  background: #ffffff !important;
+}
+
+/* Actual content */
+::ng-deep .user-menu .mat-mdc-menu-content {
+  border-radius: 14px !important;
+  background: #ffffff !important;
+}

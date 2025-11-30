@@ -1,3 +1,5 @@
+
+
 <div class="min-h-screen bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 
                 relative overflow-hidden flex items-center justify-center px-4 py-12">
 
@@ -14,8 +16,11 @@
 
       <!-- Header -->
       <div class="text-center mb-10">
-        <h1 class="text-5xl font-extrabold bg-gradient-to-r from-emerald-600 to-teal-600 
+        <!-- <h1 class="text-5xl font-extrabold bg-gradient-to-r from-emerald-600 to-teal-600 
+                     bg-clip-text text-transparent"> -->
+          <h1 class="text-5xl font-extrabold bg-gradient-to-r from-[#303FA8] to-[#303FA8] 
                      bg-clip-text text-transparent">
+
           {{ editing ? 'Edit Product' : 'Add New Product' }}
         </h1>
         <p class="mt-4 text-lg text-gray-600">
@@ -110,9 +115,14 @@
           <input type="file" (change)="onFileChange($event)" accept="image/*"
                  [disabled]="uploading"
                  class="block w-full text-sm text-gray-600
+       file:mr-4 file:py-3 file:px-6 file:rounded-xl file:border-0
+       file:bg-[#303FA8] file:text-white hover:file:bg-[#2a3696]
+       cursor-pointer"/>
+
+                 <!-- class="block w-full text-sm text-gray-600
                         file:mr-4 file:py-3 file:px-6 file:rounded-xl file:border-0
                         file:bg-emerald-600 file:text-white hover:file:bg-emerald-700
-                        cursor-pointer" />
+                        cursor-pointer" /> -->
 
           <!-- Preview -->
           <div *ngIf="previewUrl" class="mt-6">
@@ -130,7 +140,7 @@
           <input id="ecoCert" type="checkbox" formControlName="ecoCertified"
                  [disabled]="uploading"
                  class="w-6 h-6 text-emerald-600 rounded focus:ring-emerald-500" />
-          <label for="ecoCert" class="text-lg font-medium text-gray-800 cursor-pointer">
+          <label for="ecoCert" class="text-lg font-medium text-black cursor-pointer">
             Request Official Eco Certification
           </label>
         </div>
@@ -143,14 +153,24 @@
 
         <!-- Action Buttons -->
         <div class="flex flex-col sm:flex-row gap-4 pt-6">
-          <button type="submit"
+          <!-- <button type="submit"
                   [disabled]="uploading || form.invalid"
                   class="flex-1 py-5 px-8 text-xl font-bold text-white rounded-2xl 
                          bg-gradient-to-r from-emerald-600 to-teal-600
                          hover:from-emerald-700 hover:to-teal-700
                          disabled:from-emerald-400/70 disabled:to-teal-400/70 disabled:cursor-not-allowed
                          shadow-xl hover:shadow-2xl transform hover:-translate-y-1
-                         transition-all duration-300 flex items-center justify-center gap-3">
+                         transition-all duration-300 flex items-center justify-center gap-3"> -->
+
+            <button type="submit"
+              [disabled]="uploading || form.invalid"
+                class="flex-1 py-5 px-8 text-xl font-bold text-white rounded-2xl 
+                  bg-gradient-to-r from-[#303FA8] to-[#6FA8FF]
+                    hover:from-[#2a3696] hover:to-[#5e98f0]
+                  disabled:from-[#303FA8]/40 disabled:to-[#6FA8FF]/40 disabled:cursor-not-allowed
+                  shadow-xl hover:shadow-2xl transform hover:-translate-y-1
+                  transition-all duration-300 flex items-center justify-center gap-3">
+
             <svg *ngIf="uploading" class="w-6 h-6 animate-spin" fill="none" viewBox="0 0 24 24">
               <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
               <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
@@ -158,12 +178,20 @@
             <span>{{ uploading ? (editing ? 'Updating...' : 'Creating...') : (editing ? 'Update Product' : 'Create Product') }}</span>
           </button>
 
-          <button type="button" (click)="router.navigate(['/seller/dashboard'])"
+          <!-- <button type="button" (click)="router.navigate(['/seller/dashboard'])"
                   [disabled]="uploading"
                   class="px-8 py-5 text-lg font-medium rounded-2xl border-2 border-gray-300
-                         hover:bg-gray-100 transition">
+                         hover:bg-black-100 transition bg-black-100">
+            Cancel
+          </button> -->
+
+          <button type="button" (click)="router.navigate(['/seller/dashboard'])"
+            [disabled]="uploading"
+              class="px-8 py-5 text-lg font-medium rounded-2xl border-2 border-gray-300
+                bg-black text-white hover:bg-gray-900 transition">
             Cancel
           </button>
+
         </div>
       </form>
     </div>

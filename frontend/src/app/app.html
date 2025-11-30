@@ -2,7 +2,7 @@
 
 <app-navbar></app-navbar>
 
-<div class="min-h-screen bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 relative overflow-hidden">
+<div class="min-h-[60] bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 relative overflow-hidden">
   <div class="fixed inset-0 -z-10 pointer-events-none">
     <div class="absolute top-10 -left-20 w-96 h-96 bg-emerald-400/25 rounded-full blur-3xl animate-pulse"></div>
     <div class="absolute bottom-0 right-0 w-80 h-80 bg-teal-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
@@ -16,4 +16,5 @@
   </div>
 </div>
 
-<app-footer></app-footer>
+<!-- <app-footer></app-footer> -->
+ <app-footer *ngIf="router?.url !== '/login' && router?.url !== '/register'"></app-footer>
