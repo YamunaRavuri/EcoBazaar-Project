@@ -1,5 +1,5 @@
-<div class="min-h-screen bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 
-                relative overflow-hidden py-12 px-6">
+<div class="min-h-screen bg-gradient-to-br from-[#f5f8fd] via-[#eef2fa] to-[#e1e8f4] 
+                relative overflow-hidden py-12 px-6 mb-100">
 
   <!-- Floating Eco Orbs -->
   <div class="absolute inset-0 -z-10 pointer-events-none">
@@ -29,10 +29,10 @@
 
       <!-- Image -->
       <div class="relative">
-        <div class="rounded-3xl overflow-hidden shadow-2xl bg-white/90 backdrop-blur-xl border border-emerald-100">
+        <div class="rounded-2xl overflow-hidden shadow-2xl bg-white/90 backdrop-blur-xl border border-emerald-100">
           <img [src]="product.imageUrl || 'assets/placeholder.png'"
                [alt]="product.name"
-               class="w-full h-96 lg:h-full max-h-screen object-cover hover:scale-105 transition-transform duration-700" />
+               class="w-full h-auto aspect-[4/3] sm:aspect-square lg:aspect-[3/4] object-contain max-h-[70vh] lg:max-h-[600px] hover:scale-105 transition-transform duration-700" />
         </div>
         <div *ngIf="product.ecoCertified"
              class="absolute top-6 left-6 bg-emerald-600 text-white px-6 py-3 rounded-full text-lg font-bold shadow-2xl flex items-center gap-3 animate-pulse">
@@ -45,7 +45,7 @@
 
         <div>
           <h1 class="text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-emerald-600 to-teal-600 
-                       bg-clip-text text-transparent leading-tight">
+                       bg-clip-text text-transparent leading-tight mt-6">
             {{ product.name }}
           </h1>
           <p class="mt-4 text-xl text-gray-700 leading-relaxed">
@@ -57,7 +57,7 @@
           <p class="text-5xl font-black text-emerald-600">₹{{ product.price | number:'1.0-0' }}</p>
           <div *ngIf="product.carbonImpact != null"
                class="flex items-center gap-3 bg-emerald-50 px-6 py-4 rounded-2xl border border-emerald-200">
-            <span class="text-4xl">CO₂</span>
+            <span class="text-4xl text-black">CO₂</span>
             <div>
               <p class="text-2xl font-bold text-emerald-700">{{ product.carbonImpact }} kg</p>
               <p class="text-sm text-emerald-600">per unit</p>
@@ -81,14 +81,14 @@
           <div class="flex items-center gap-4">
             <label class="text-lg font-semibold text-gray-700">Quantity:</label>
             <input type="number" [(ngModel)]="qty" min="1" max="99"
-                   class="w-24 px-5 py-4 text-xl font-bold text-center rounded-2xl border-2 border-emerald-200 bg-white 
-                          focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/30 outline-none transition-all" />
+                   class="w-24 px-5 py-4 text-xl font-bold text-center rounded-2xl border-2 border-emerald-200 bg-gray text-black 
+                          focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/30 outline-[#2453a2] transition-all" />
           </div>
 
           <button (click)="addToCart()"
                   [disabled]="added || qty < 1"
                   class="flex-1 max-w-md py-6 px-10 text-2xl font-bold text-white rounded-2xl 
-                         bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700
+                         bg-[#2453a2] hover:from-emerald-700 hover:to-teal-700
                          disabled:opacity-70 disabled:cursor-not-allowed
                          shadow-2xl hover:shadow-3xl transform hover:-translate-y-1 transition-all duration-300 
                          flex items-center justify-center gap-4">
@@ -105,7 +105,7 @@
 
         <!-- Recommended Eco Alternatives – Day 14 -->
         <div *ngIf="showEcoAlternatives" class="mt-16">
-          <h2 class="text-4xl font-extrabold text-emerald-700 mb-10 text-center">
+          <h2 class="text-4xl font-extrabold text-emerald-700 mb-10 text-center outline-[#2453a2]">
             Recommended Eco Alternatives
           </h2>
 
@@ -125,7 +125,7 @@
                class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             <a *ngFor="let alt of alternatives" [routerLink]="['/products', alt.id]"
                class="group block p-6 rounded-3xl bg-white/90 backdrop-blur-xl 
-                      border-2 border-emerald-100 hover:border-emerald-500 
+                      border-2 border-emerald-100 hover:border-[#2453a2] 
                       shadow-xl hover:shadow-2xl transform hover:-translate-y-4 
                       transition-all duration-500 cursor-pointer">
 
@@ -156,7 +156,7 @@
         <!-- Back Link -->
         <div class="pt-12">
           <button (click)="goBack()" 
-                  class="text-emerald-600 font-semibold text-lg hover:underline flex items-center gap-2 transition">
+                  class="text-[#2453a2] font-semibold text-lg hover:underline flex items-center gap-2 transition">
             Back to Products
           </button>
         </div>

@@ -4,8 +4,9 @@ import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class CloudinaryService {
- private cloudName = 'dvdtzn4fm';      // <<-- replace if different
+  private cloudName = 'dvdtzn4fm';      // <<-- replace if different
   private unsignedPreset = 'Ecobazaar'; // <<-- replace if different
+
   constructor(private http: HttpClient) {}
 
   uploadFile(file: File): Observable<any> {

@@ -1,5 +1,3 @@
-
-
 import { Component, OnInit, OnDestroy, inject, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
@@ -105,24 +103,15 @@ export class SellerDashboard implements OnInit, OnDestroy {
     const maxRevenue = Math.max(...values, 100);
     const suggestedMax = maxRevenue * 1.2;
 
-    // Create gradient for bars  //added new things..
-    const gradient = ctx.createLinearGradient(0, 0, 0, 400);
-    gradient.addColorStop(0, '#303FA8');  // deep blue
-    gradient.addColorStop(1, '#6FA8FF');  // light blue
-
-
     this.chart = new Chart(ctx, {
       type: 'bar',
       data: {
         labels,
         datasets: [{
           data: values,
-          // backgroundColor: values.map(v => v > 0 ? '#10b981' : '#f3f4f6'),
+          backgroundColor: values.map(v => v > 0 ? '#10b981' : '#f3f4f6'),
           borderColor: '#10b981',
-          backgroundColor: values.map(v => v > 0 ? gradient : '#e5e7eb'),  // light gray for zero bars
-          // borderColor: '#303FA8',
-
-          borderWidth: 2,
+          borderWidth: 3,
           borderRadius: 12,
           borderSkipped: false,
           barThickness: 40,
@@ -140,7 +129,10 @@ export class SellerDashboard implements OnInit, OnDestroy {
             titleColor: '#fff',
             bodyColor: '#fff',
             callbacks: {
-              label: (ctx) => `Revenue: ₹${ctx.parsed.y.toLocaleString()}`
+              label: (ctx) => {
+                const value = ctx?.parsed?.y ?? 0;
+                return `Revenue: ₹${value.toLocaleString()}`;
+              }
             }
           }
         },

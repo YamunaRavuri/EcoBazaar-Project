@@ -1,4 +1,5 @@
 @use "tailwindcss";
+@import '@fortawesome/fontawesome-free/css/all.css';
 
 $primary: oklch(65% 0.2 140);        
 $primary-light: oklch(75% 0.15 140);
@@ -35,8 +36,8 @@ html.dark .text-gray-500 {
   @apply text-gray-300;
 }
 
-html, html * {
-  @apply transition-colors duration-300;
+html, body {
+  background: #e7edf7 !important;
 }
 
 /* Custom EcoBazaar variables */
@@ -46,4 +47,22 @@ html, html * {
   --color-leaf-400: oklch(75% 0.18 140);
   --color-earth-100: #f5f8f0;
   --color-earth-200: #e0e8d8;
+}
+
+.mat-mdc-menu-panel {
+  --mdc-theme-surface: #ffffff !important;
+  background: #ffffff !important;
+  color: #000 !important;
+}
+
+.mat-mdc-menu-item {
+  color: #000 !important;
+}
+
+.mat-mdc-menu-item .mat-icon {
+  color: #000 !important;
+}
+
+.mat-mdc-menu-item:hover {
+  background: #f1f5f9 !important; /* light gray */
 }

@@ -1,7 +1,5 @@
-navbar.html
-
 <mat-toolbar class="!bg-gradient-to-r !from-blue-900 !via-indigo-800 !to-cyan-700
-                   !text-white fixed top-0 left-0 right-0 z-50 shadow-2xl border-b-4 !border-blue-600">
+                   !text-white fixed top-0 left-0 right-0 z-50 shadow-2xl">
 
   <div class="flex items-center justify-between w-full max-w-7xl mx-auto px-6 py-3">
 
@@ -19,6 +17,10 @@ navbar.html
 
       <!-- Normal User (Consumer) -->
       <ng-container *ngIf="auth.isUser() && !auth.isSeller() && !auth.isAdmin()">
+        <a routerLink="/"
+           class="text-cyan-200 hover:text-white font-bold text-lg transition-all duration-300">
+          Home
+        </a>
         <a routerLink="/products" routerLinkActive="active-link"
            class="text-white/80 hover:text-white font-semibold text-lg transition-all duration-300 hover:scale-110">
           Shop
@@ -61,11 +63,11 @@ navbar.html
       <!-- Guest Buttons -->
       <ng-container *ngIf="!auth.isLoggedIn()">
         <button mat-stroked-button routerLink="/login"
-                class="border-2 border-white/50 text-white hover:bg-white/10 px-6 py-2 rounded-full font-semibold">
+                class="border-white/50 text-black hover:bg-black/10 px-6 py-2 rounded-full font-semibold">
           Login
         </button>
         <button mat-raised-button color="accent" routerLink="/register"
-                class="bg-white text-blue-900 font-bold px-8 py-2 rounded-full hover:bg-blue-50 shadow-lg">
+                class="bg-gary border-2 border-white/50 text-black font-bold px-8 py-2 rounded-full hover:bg-blue-50 shadow-lg">
           Join Free
         </button>
       </ng-container>
@@ -87,36 +89,23 @@ navbar.html
 </mat-toolbar>
 
 <!-- User Menu -->
-<mat-menu #userMenu="matMenu" class="mt-4 user-menu">
-
+<mat-menu #userMenu="matMenu" class="mt-4">
   <button mat-menu-item routerLink="/dashboard" *ngIf="auth.isUser() && !auth.isSeller()">
-    <!-- <mat-icon>dashboard</mat-icon> My Impact -->
-    <span style="color:black;"><mat-icon>dashboard</mat-icon></span>
-      <span style="color:black;">My Impact</span>
+    <mat-icon>dashboard</mat-icon> My Impact
   </button>
   <button mat-menu-item routerLink="/seller/dashboard" *ngIf="auth.isSeller()">
-    <!-- <mat-icon>storefront</mat-icon> Seller Dashboard -->
-     <span style="color:black;"><mat-icon>storefront</mat-icon></span>
-      <span style="color:black;">Seller dashboard</span>
+    <mat-icon>storefront</mat-icon> Seller Dashboard
   </button>
   <button mat-menu-item routerLink="/admin" *ngIf="auth.isAdmin()">
-    <!-- <mat-icon>shield</mat-icon> Admin Panel -->
-     <span style="color:black;"><mat-icon>shield</mat-icon></span>
-      <span style="color:black;">Admin Panel</span>
+    <mat-icon>shield</mat-icon> Admin Panel
   </button>
   <mat-divider></mat-divider>
   <button mat-menu-item (click)="logout()">
-     <span style="color:black;"><mat-icon>logout</mat-icon></span>
-      <span style="color:black;">Log out</span>
+    <mat-icon>logout</mat-icon> Logout
   </button>
 </mat-menu>
 
 <!-- Page Content -->
-<div class="pt-16 min-h-screen bg-gradient-to-br from-blue-50 via-cyan-50 to-indigo-100 relative overflow-hidden">
-  <div class="absolute inset-0 -z-10 pointer-events-none">
-    <div class="absolute top-10 -left-20 w-96 h-96 bg-blue-400/25 rounded-full blur-3xl animate-pulse"></div>
-    <div class="absolute bottom-0 right-0 w-80 h-80 bg-cyan-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-indigo-400/15 rounded-full blur-3xl animate-pulse delay-500"></div>
-  </div>
+<!-- <div class=" min-h-screen">
   <router-outlet></router-outlet>
-</div>
+</div> -->
